@@ -4,6 +4,15 @@ public class Trabajador {
     private String pass;
     private String hora;
 
+    public Trabajador() {
+    }
+
+    public Trabajador(String dni, String pass, String hora) {
+        this.dni = dni;
+        this.pass = pass;
+        this.hora = hora;
+    }
+
     public String getDni() {
         return dni;
     }
