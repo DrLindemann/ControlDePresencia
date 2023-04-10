@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class Main {
 
     static String passAdmin = "0000";
+
     public static void main(String[] args) {
 
         boolean runApp = true;
@@ -33,17 +34,34 @@ public class Main {
             switch (option) {
 
                 case "1": {
-                    listaEntradas.add(setEntrada()); break;
+                    listaEntradas.add(setEntrada());
+                    break;
                 }
                 case "2": {
-                    listaSalidas.add(setSalida()); break;
+                    listaSalidas.add(setSalida());
+                    break;
                 }
                 case "3": {
-                    getEntradas(listaEntradas); break;
+                    getEntradas(listaEntradas);
+                    break;
                 }
                 case "4": {
-                    getSalidas(listaSalidas); break;
+                    getSalidas(listaSalidas);
+                    break;
                 }
+                case "5": {
+
+                }
+                case "6": {
+
+                }
+                case "7": {
+                    System.out.println("Saliendo...");
+                    runApp = false;
+                    break;
+                }
+                default :
+                    System.out.println("elige una de las 7 opciones.");
 
             }
 
@@ -62,7 +80,7 @@ public class Main {
 
         Trabajador trabajador = new Trabajador();
 
-        while (runIn){
+        while (runIn) {
             System.out.println("Introduce numero de usuario");
             String user = scan.nextLine();
             System.out.println("Introduce la contraseña");
@@ -75,7 +93,7 @@ public class Main {
                 runIn = false;
 
 
-            }else{
+            } else {
                 System.out.println("DATOS INCORRECTOS");
                 System.out.println("-1) volver a intentarlo");
                 System.out.println("-2) menu principal");
@@ -106,7 +124,7 @@ public class Main {
 
         Trabajador trabajador = new Trabajador();
 
-        while (runOut){
+        while (runOut) {
             System.out.println("Introduce numero de usuario");
             String user = scan.nextLine();
             System.out.println("Introduce la contraseña");
@@ -119,7 +137,7 @@ public class Main {
                 runOut = false;
 
 
-            }else{
+            } else {
                 System.out.println("DATOS INCORRECTOS");
                 System.out.println("-1) volver a intentarlo");
                 System.out.println("-2) menu principal");
@@ -139,7 +157,7 @@ public class Main {
         return trabajador;
     }
 
-    public static void getEntradas(List<Trabajador> lista){
+    public static void getEntradas(List<Trabajador> lista) {
         Scanner scan = new Scanner(System.in);
 
         Trabajador trabajador = new Trabajador();
@@ -147,19 +165,19 @@ public class Main {
         System.out.println("introduce la contraseña de administrador");
         String password = scan.nextLine();
 
-        if (password.equals(passAdmin)){
-            for (Trabajador i :lista) {
+        if (password.equals(passAdmin)) {
+            for (Trabajador i : lista) {
                 System.out.println(i.toString());
             }
 
-        }else{
+        } else {
             System.out.println("contraseña incorrecta");
         }
 
 
     }
 
-    public static void getSalidas(List<Trabajador> lista){
+    public static void getSalidas(List<Trabajador> lista) {
         Scanner scan = new Scanner(System.in);
 
         Trabajador trabajador = new Trabajador();
@@ -167,18 +185,17 @@ public class Main {
         System.out.println("introduce la contraseña de administrador");
         String password = scan.nextLine();
 
-        if (password.equals(passAdmin)){
-            for (Trabajador i :lista) {
+        if (password.equals(passAdmin)) {
+            for (Trabajador i : lista) {
                 System.out.println(i.toString());
             }
 
-        }else{
+        } else {
             System.out.println("contraseña incorrecta");
         }
 
 
     }
-
 
 
 }
