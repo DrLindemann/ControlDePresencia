@@ -74,6 +74,7 @@ public class Main {
 
 
         }
+        scan.close();
     }
 
     public static Trabajador setEntrada() {
