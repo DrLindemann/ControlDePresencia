@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    static String passAdmin = "0000";
+    static final String passAdmin = "0000";
 
     public static void main(String[] args) {
 
@@ -205,23 +205,33 @@ public class Main {
     }
 
     public static void imprimirEntradas(List<Trabajador> lista) {
-        List<String> listaFormateada = new ArrayList<>();
-        String nombreArchivo = "ListaEntradas" + fecha() + ".txt";
-        String rutaArchivo = new File(nombreArchivo).getAbsolutePath();
+        Scanner scan = new Scanner(System.in);
+        String pass;
+        System.out.println("INTRODUCE LA CONTRASEÑA DE ADMINISTRADOR");
+        pass = scan.nextLine();
+        if (passAdmin.equals(pass)){
+            List<String> listaFormateada = new ArrayList<>();
+            String nombreArchivo = "ListaEntradas" + fecha() + ".txt";
+            String rutaArchivo = new File(nombreArchivo).getAbsolutePath();
 
-        for (Trabajador i : lista) {
-            listaFormateada.add(i.toString());
-            listaFormateada.add("\n");
+            for (Trabajador i : lista) {
+                listaFormateada.add(i.toString());
+                listaFormateada.add("\n");
+            }
+            try {
+                FileWriter archivo = new FileWriter(rutaArchivo);
+                archivo.write(listaFormateada.toString());
+                archivo.close();
+                System.out.println("El archivo ha sido creado exitosamente.");
+            } catch (IOException e) {
+                System.out.println("Ha ocurrido un error al crear el archivo.");
+                e.printStackTrace();
+            }
+        }else{
+            System.out.println("Contraseña incorrecta");
         }
-        try {
-            FileWriter archivo = new FileWriter(rutaArchivo);
-            archivo.write(listaFormateada.toString());
-            archivo.close();
-            System.out.println("El archivo ha sido creado exitosamente.");
-        } catch (IOException e) {
-            System.out.println("Ha ocurrido un error al crear el archivo.");
-            e.printStackTrace();
-        }
+
+
 
     }
 
