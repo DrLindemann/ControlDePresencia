@@ -5,7 +5,6 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -14,7 +13,6 @@ public class Main {
     static String passAdmin = "0000";
 
     public static void main(String[] args) {
-
 
 
         boolean runApp = true;
@@ -208,7 +206,7 @@ public class Main {
 
     public static void imprimirEntradas(List<Trabajador> lista) {
         List<String> listaFormateada = new ArrayList<>();
-        String nombreArchivo = "ListaEntradas"+fecha()+".txt";
+        String nombreArchivo = "ListaEntradas" + fecha() + ".txt";
         String rutaArchivo = new File(nombreArchivo).getAbsolutePath();
 
         for (Trabajador i : lista) {
@@ -229,7 +227,7 @@ public class Main {
 
     public static void imprimirSalidas(List<Trabajador> lista) {
         List<String> listaFormateada = new ArrayList<>();
-        String nombreArchivo = "ListaSalidas"+fecha()+".txt";
+        String nombreArchivo = "ListaSalidas" + fecha() + ".txt";
         String rutaArchivo = new File(nombreArchivo).getAbsolutePath();
 
         for (Trabajador i : lista) {
@@ -247,7 +245,8 @@ public class Main {
         }
 
     }
-    public static LocalDate fecha(){
+
+    public static LocalDate fecha() {
         LocalDate localDate = LocalDate.now();
         return localDate;
     }
