@@ -1,3 +1,6 @@
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -50,7 +53,8 @@ public class Main {
                     break;
                 }
                 case "5": {
-
+                    imprimirEntradas(listaEntradas);
+                    break;
                 }
                 case "6": {
 
@@ -194,6 +198,26 @@ public class Main {
             System.out.println("contraseña incorrecta");
         }
 
+
+    }
+    public static void imprimirEntradas (List<Trabajador> lista){
+        List<String> listaFormateada = new ArrayList<>();
+        String nombreArchivo = "ListaEntradas.txt";
+        String rutaArchivo = new File(nombreArchivo).getAbsolutePath();
+
+        for (Trabajador i: lista) {
+            listaFormateada.add(i.toString());
+            listaFormateada.add("\n");
+        }
+        try {
+            FileWriter archivo = new FileWriter(rutaArchivo);
+            archivo.write(listaFormateada.toString());
+            archivo.close();
+            System.out.println("El archivo ha sido creado exitosamente.");
+        } catch (IOException e) {
+            System.out.println("Ha ocurrido un error al crear el archivo.");
+            e.printStackTrace();
+        }
 
     }
 
