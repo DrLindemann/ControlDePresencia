@@ -10,6 +10,8 @@ import java.util.Scanner;
 
 public class Main {
 
+    //passAdmin seria el password al que solo tendria acceso la persona que puede ver los movimientos de entrada
+    // y salida de los demas trabajadores
     static final String passAdmin = "0000";
 
     public static void main(String[] args) {
@@ -76,7 +78,7 @@ public class Main {
         }
         scan.close();
     }
-
+//tica la entrada del trabajador
     public static Trabajador setEntrada() {
         boolean runIn = true;
 
@@ -120,7 +122,7 @@ public class Main {
 
         return trabajador;
     }
-
+//tica la salida del trabajador
     public static Trabajador setSalida() {
         boolean runOut = true;
 
@@ -164,7 +166,7 @@ public class Main {
 
         return trabajador;
     }
-
+//imprime la lista de entrada de los trabajadores
     public static void getEntradas(List<Trabajador> lista) {
         Scanner scan = new Scanner(System.in);
 
@@ -184,7 +186,7 @@ public class Main {
 
 
     }
-
+//imprime la lista de salida de los trabajadores
     public static void getSalidas(List<Trabajador> lista) {
         Scanner scan = new Scanner(System.in);
 
@@ -204,13 +206,13 @@ public class Main {
 
 
     }
-
+//crea un archivo txt con las entradas de todos los trabajadores
     public static void imprimirEntradas(List<Trabajador> lista) {
         Scanner scan = new Scanner(System.in);
         String pass;
         System.out.println("INTRODUCE LA CONTRASEÑA DE ADMINISTRADOR");
         pass = scan.nextLine();
-        if (passAdmin.equals(pass)){
+        if (passAdmin.equals(pass)) {
             List<String> listaFormateada = new ArrayList<>();
             String nombreArchivo = "ListaEntradas" + fecha() + ".txt";
             String rutaArchivo = new File(nombreArchivo).getAbsolutePath();
@@ -228,14 +230,13 @@ public class Main {
                 System.out.println("Ha ocurrido un error al crear el archivo.");
                 e.printStackTrace();
             }
-        }else{
+        } else {
             System.out.println("Contraseña incorrecta");
         }
 
 
-
     }
-
+//crea un archivo txt con las salidas de todos los trabajadores
     public static void imprimirSalidas(List<Trabajador> lista) {
         Scanner scan = new Scanner(System.in);
         String pass;
@@ -243,7 +244,7 @@ public class Main {
         System.out.println("INTRODUCE LA CONTRASEÑA DE ADMINISTRADOR");
         pass = scan.nextLine();
 
-        if (passAdmin.equals(pass)){
+        if (passAdmin.equals(pass)) {
             List<String> listaFormateada = new ArrayList<>();
             String nombreArchivo = "ListaSalidas" + fecha() + ".txt";
             String rutaArchivo = new File(nombreArchivo).getAbsolutePath();
@@ -261,14 +262,13 @@ public class Main {
                 System.out.println("Ha ocurrido un error al crear el archivo.");
                 e.printStackTrace();
             }
-        }else{
+        } else {
             System.out.println("Contraseña incorrecta");
         }
 
 
-
     }
-
+//metodo simple para obtener la fecha del sistema y llevarla donde se necesite
     public static LocalDate fecha() {
         LocalDate localDate = LocalDate.now();
         return localDate;
