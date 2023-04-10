@@ -11,7 +11,7 @@ public class Main {
         Trabajador trabajador = new Trabajador();
         Scanner scan = new Scanner(System.in);
         List<Trabajador> listaEntradas = new ArrayList<>();
-        int pass = 0000;
+        int passAdmin = 0000;
         String option;
 
         while (runApp) {
@@ -30,8 +30,9 @@ public class Main {
             switch (option) {
 
                 case "1": {
-
+                    listaEntradas.add(setEntrada()); break;
                 }
+                case "2":
 
             }
 
@@ -39,7 +40,7 @@ public class Main {
         }
     }
 
-    public Trabajador setEntrada() {
+    public static Trabajador setEntrada() {
         boolean runIn = true;
 
         Scanner scan = new Scanner(System.in);
@@ -61,7 +62,7 @@ public class Main {
                 trabajador.setPass(pass);
                 trabajador.setHora(horaActual);
                 runIn = false;
-                return trabajador;
+
 
             }else{
                 System.out.println("DATOS INCORRECTOS");
@@ -69,11 +70,10 @@ public class Main {
                 System.out.println("-2) menu principal");
                 String opcion = scan.nextLine();
 
-                switch(opcion){
-                    case "1": runIn = true; break;
-                    case "2": runIn = false; break;
-                    default:
-                        System.out.println("Solo puedes elegir 1 o 2");
+                switch (opcion) {
+                    case "1" -> runIn = true;
+                    case "2" -> runIn = false;
+                    default -> System.out.println("Solo puedes elegir 1 o 2");
                 }
 
 
@@ -81,5 +81,6 @@ public class Main {
         }
 
 
+        return trabajador;
     }
 }
