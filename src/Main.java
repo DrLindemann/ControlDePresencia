@@ -1,9 +1,11 @@
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,6 +14,8 @@ public class Main {
     static String passAdmin = "0000";
 
     public static void main(String[] args) {
+
+
 
         boolean runApp = true;
         Trabajador trabajador = new Trabajador();
@@ -57,14 +61,15 @@ public class Main {
                     break;
                 }
                 case "6": {
-
+                    imprimirSalidas(listaSalidas);
+                    break;
                 }
                 case "7": {
                     System.out.println("Saliendo...");
                     runApp = false;
                     break;
                 }
-                default :
+                default:
                     System.out.println("elige una de las 7 opciones.");
 
             }
@@ -200,12 +205,13 @@ public class Main {
 
 
     }
-    public static void imprimirEntradas (List<Trabajador> lista){
+
+    public static void imprimirEntradas(List<Trabajador> lista) {
         List<String> listaFormateada = new ArrayList<>();
-        String nombreArchivo = "ListaEntradas.txt";
+        String nombreArchivo = "ListaEntradas"+fecha()+".txt";
         String rutaArchivo = new File(nombreArchivo).getAbsolutePath();
 
-        for (Trabajador i: lista) {
+        for (Trabajador i : lista) {
             listaFormateada.add(i.toString());
             listaFormateada.add("\n");
         }
@@ -219,6 +225,31 @@ public class Main {
             e.printStackTrace();
         }
 
+    }
+
+    public static void imprimirSalidas(List<Trabajador> lista) {
+        List<String> listaFormateada = new ArrayList<>();
+        String nombreArchivo = "ListaSalidas"+fecha()+".txt";
+        String rutaArchivo = new File(nombreArchivo).getAbsolutePath();
+
+        for (Trabajador i : lista) {
+            listaFormateada.add(i.toString());
+            listaFormateada.add("\n");
+        }
+        try {
+            FileWriter archivo = new FileWriter(rutaArchivo);
+            archivo.write(listaFormateada.toString());
+            archivo.close();
+            System.out.println("El archivo ha sido creado exitosamente.");
+        } catch (IOException e) {
+            System.out.println("Ha ocurrido un error al crear el archivo.");
+            e.printStackTrace();
+        }
+
+    }
+    public static LocalDate fecha(){
+        LocalDate localDate = LocalDate.now();
+        return localDate;
     }
 
 
