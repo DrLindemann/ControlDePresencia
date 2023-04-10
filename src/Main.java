@@ -78,7 +78,8 @@ public class Main {
         }
         scan.close();
     }
-//tica la entrada del trabajador
+
+    //tica la entrada del trabajador
     public static Trabajador setEntrada() {
         boolean runIn = true;
 
@@ -122,7 +123,8 @@ public class Main {
 
         return trabajador;
     }
-//tica la salida del trabajador
+
+    //tica la salida del trabajador
     public static Trabajador setSalida() {
         boolean runOut = true;
 
@@ -166,7 +168,8 @@ public class Main {
 
         return trabajador;
     }
-//imprime la lista de entrada de los trabajadores
+
+    //imprime la lista de entrada de los trabajadores
     public static void getEntradas(List<Trabajador> lista) {
         Scanner scan = new Scanner(System.in);
 
@@ -186,7 +189,8 @@ public class Main {
 
 
     }
-//imprime la lista de salida de los trabajadores
+
+    //imprime la lista de salida de los trabajadores
     public static void getSalidas(List<Trabajador> lista) {
         Scanner scan = new Scanner(System.in);
 
@@ -206,7 +210,8 @@ public class Main {
 
 
     }
-//crea un archivo txt con las entradas de todos los trabajadores
+
+    //crea un archivo txt con las entradas de todos los trabajadores
     public static void imprimirEntradas(List<Trabajador> lista) {
         Scanner scan = new Scanner(System.in);
         String pass;
@@ -236,7 +241,8 @@ public class Main {
 
 
     }
-//crea un archivo txt con las salidas de todos los trabajadores
+
+    //crea un archivo txt con las salidas de todos los trabajadores
     public static void imprimirSalidas(List<Trabajador> lista) {
         Scanner scan = new Scanner(System.in);
         String pass;
@@ -268,7 +274,8 @@ public class Main {
 
 
     }
-//metodo simple para obtener la fecha del sistema y llevarla donde se necesite
+
+    //metodo simple para obtener la fecha del sistema y llevarla donde se necesite
     public static LocalDate fecha() {
         LocalDate localDate = LocalDate.now();
         return localDate;
