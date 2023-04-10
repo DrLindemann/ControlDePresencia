@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
+
+    static String passAdmin = "0000";
     public static void main(String[] args) {
 
         boolean runApp = true;
@@ -12,7 +14,7 @@ public class Main {
         Scanner scan = new Scanner(System.in);
         List<Trabajador> listaEntradas = new ArrayList<>();
         List<Trabajador> listaSalidas = new ArrayList<>();
-        int passAdmin = 0000;
+
         String option;
 
         while (runApp) {
@@ -37,7 +39,10 @@ public class Main {
                     listaSalidas.add(setSalida()); break;
                 }
                 case "3": {
-
+                    getEntradas(listaEntradas); break;
+                }
+                case "4": {
+                    getSalidas(listaSalidas); break;
                 }
 
             }
@@ -134,7 +139,45 @@ public class Main {
         return trabajador;
     }
 
+    public static void getEntradas(List<Trabajador> lista){
+        Scanner scan = new Scanner(System.in);
 
+        Trabajador trabajador = new Trabajador();
+
+        System.out.println("introduce la contraseña de administrador");
+        String password = scan.nextLine();
+
+        if (password.equals(passAdmin)){
+            for (Trabajador i :lista) {
+                System.out.println(i.toString());
+            }
+
+        }else{
+            System.out.println("contraseña incorrecta");
+        }
+
+
+    }
+
+    public static void getSalidas(List<Trabajador> lista){
+        Scanner scan = new Scanner(System.in);
+
+        Trabajador trabajador = new Trabajador();
+
+        System.out.println("introduce la contraseña de administrador");
+        String password = scan.nextLine();
+
+        if (password.equals(passAdmin)){
+            for (Trabajador i :lista) {
+                System.out.println(i.toString());
+            }
+
+        }else{
+            System.out.println("contraseña incorrecta");
+        }
+
+
+    }
 
 
 
