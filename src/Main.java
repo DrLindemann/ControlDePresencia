@@ -11,6 +11,7 @@ public class Main {
         Trabajador trabajador = new Trabajador();
         Scanner scan = new Scanner(System.in);
         List<Trabajador> listaEntradas = new ArrayList<>();
+        List<Trabajador> listaSalidas = new ArrayList<>();
         int passAdmin = 0000;
         String option;
 
@@ -32,7 +33,12 @@ public class Main {
                 case "1": {
                     listaEntradas.add(setEntrada()); break;
                 }
-                case "2":
+                case "2": {
+                    listaSalidas.add(setSalida()); break;
+                }
+                case "3": {
+
+                }
 
             }
 
@@ -83,4 +89,53 @@ public class Main {
 
         return trabajador;
     }
+
+    public static Trabajador setSalida() {
+        boolean runOut = true;
+
+        Scanner scan = new Scanner(System.in);
+
+        LocalTime localtime = LocalTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm:ss");
+        String horaActual = localtime.format(formatter);
+
+        Trabajador trabajador = new Trabajador();
+
+        while (runOut){
+            System.out.println("Introduce numero de usuario");
+            String user = scan.nextLine();
+            System.out.println("Introduce la contraseña");
+            String pass = scan.nextLine();
+
+            if (user.equals(pass)) {
+                trabajador.setDni(user);
+                trabajador.setPass(pass);
+                trabajador.setHora(horaActual);
+                runOut = false;
+
+
+            }else{
+                System.out.println("DATOS INCORRECTOS");
+                System.out.println("-1) volver a intentarlo");
+                System.out.println("-2) menu principal");
+                String opcion = scan.nextLine();
+
+                switch (opcion) {
+                    case "1" -> runOut = true;
+                    case "2" -> runOut = false;
+                    default -> System.out.println("Solo puedes elegir 1 o 2");
+                }
+
+
+            }
+        }
+
+
+        return trabajador;
+    }
+
+
+
+
+
 }
